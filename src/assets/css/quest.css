@@ -1,6 +1,6 @@
 #questform > p {
-    font-size: 2rem;
-    text-shadow: 10px 10px 17px black;
+    font-size: 1.5rem;
+    text-shadow: 10px 10px 17px rgba(0, 0, 0, 0.5);
     color: black;
 }
 
@@ -29,6 +29,7 @@
 }
 .shadows, #questform select, .css-13gadw6-container, .message-input {
     border: none;
+    background: rgba(255, 255, 255, 0.4);
     box-shadow: 10px 10px 10px brown;
 }
 
@@ -41,6 +42,6 @@
 #questsubmit {
     margin-block: 2rem;
     font-size: 1.25rem;
-    box-shadow: 10px 10px 10px #0088BC;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
     padding-inline: 1rem;
 }

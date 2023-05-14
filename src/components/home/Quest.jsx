@@ -160,9 +160,10 @@ export default function Quest() {
 
             await addDoc(questCollectionRef, finalobj);
             
-            const myList = {"Montreal, Canada": "- Roundtrip bus fare from NY to Montreal: $150\n - Hotel (7 nights): $700\n- Food and entertainment: $500\nActivities:\n- Explore the Underground City and shops\n- Visit Notre-Dame Basilica \n-Check out the nightlife in the Quartier des Spectacles\n- Try poutine, Montreal-style bagels, and maple syrup\n- Take in the views from Mount Royal Park\n" , 
+            const myList = {"u_id":"AJmz6n46LjXW4d0CPoRTnTwhDon2", "plan": {"Montreal, Canada": "- Roundtrip bus fare from NY to Montreal: $150\n - Hotel (7 nights): $700\n- Food and entertainment: $500\nActivities:\n- Explore the Underground City and shops\n- Visit Notre-Dame Basilica \n-Check out the nightlife in the Quartier des Spectacles\n- Try poutine, Montreal-style bagels, and maple syrup\n- Take in the views from Mount Royal Park\n" , 
             "Chicago, Illinois": "- Roundtrip train fare from NY to Chicago: $150 \n- Hotel (7 nights): $700\n - Food and entertainment: $500\nActivities: \n- Take in the views from Willis Tower Skydeck\n- Explore Millennium Park and Art Institute of Chicago\n - Bar hop along the Magnificent Mile    \n- Go comedy clubbing at Second City \n- Try deep dish pizza and Chicago-style hot dogs\n",
-            "Quebec City, Canada": "- Roundtrip bus fare from NY to Quebec City: $200\n - Hotel (7 nights): $650\n- Food and entertainment: $450 \nActivities:\n- Explore the Old City, a UNESCO World Heritage site\n- Check out the nightlife along Grande-Allée and St-Jean St\n- Visit the Citadelle of Quebec and Battlefields Park \n- Try poutine, tourtière, and maple syrup \n- Go skiing or snowshoeing\n "}
+            "Quebec City, Canada": "- Roundtrip bus fare from NY to Quebec City: $200\n - Hotel (7 nights): $650\n- Food and entertainment: $450 \nActivities:\n- Explore the Old City, a UNESCO World Heritage site\n- Check out the nightlife along Grande-Allée and St-Jean St\n- Visit the Citadelle of Quebec and Battlefields Park \n- Try poutine, tourtière, and maple syrup \n- Go skiing or snowshoeing\n "},
+            "user_details": null}
             
             // fetch(`https://swappysh--main-py-fastapi-app-dev.modal.run/plan/${userUid}}`)
             //     .then(response => response.json())

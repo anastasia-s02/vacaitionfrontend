@@ -16,32 +16,36 @@ export default function Results(){
     const [allRecommendations, setRecommendations] = useState(myList)
     const [travelpressed, setTravelPressed] = useState("Looking for a travel buddy?")
     const activeRecommendation = null
+    console.log("allrec:", allRecommendations)
 
-    const setChoice = () => {
-        console.log("set choice func not implemented")
-    };
+    // const setChoice = () => {
+    //     console.log("set choice func not implemented")
+    // };
 
-    useEffect(() => { 
-        getResultsApi("give me the top 3 destinations").then((data) => {
-            setRecommendations(data)
-            console.log(data)
-        })
-    }, [])  
+    // useEffect(() => { 
+    //     getResultsApi("give me the top 3 destinations").then((data) => {
+    //         setRecommendations(data)
+    //         console.log(data)
+    //     })
+    // }, [])  
 
     return(
         <div className='container'>
             <div className='results-page-title'>Here are the three destinations you might like!</div>
             <div className='comments-container'>
-                {allRecommendations.plan && allRecommendations["plan"].map((singleRecommendation, index) => (
-                    <div className='recommendation-border' key={index}>
-                        <Recommendation
-                            name={singleRecommendation.name}
-                            description={singleRecommendation.description}
-                            activeRecommendation={activeRecommendation}
-                            setChoice={setChoice}
-                        />
-                    </div>
-                ))}
+                {allRecommendations.plan && Object.keys(allRecommendations.plan).map((singleRecommendation, index) => {
+                    console.log("singleRecommendation:", singleRecommendation)
+                    return(
+                        <div className='recommendation-border' key={index}>
+                            <Recommendation
+                                name={singleRecommendation}
+                                description={allRecommendations.plan[singleRecommendation]}
+                                activeRecommendation={activeRecommendation}
+                                // setChoice={setChoice}
+                            />
+                        </div>
+                    )
+                })}
             </div>
             <button id="find-people" onClick={(e) => {
                 setTravelPressed("Loading...")

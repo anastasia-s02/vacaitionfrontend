@@ -14,7 +14,6 @@ export default function Quest() {
   const [duration, setDuration] = useState('days'); 
   const [weather, setWeather] = useState('cold');
   const [departFrom, setDepartFrom] = useState('');
-  const [transportation, setTransportation] = useState('');
   const [avoid, setAvoid] = useState([]);
   const [additionalInfo, setAdditionalInfo] = useState('');
   const [finalobj, setfinalobj] = useState({sample: 'sample'});
@@ -159,40 +158,23 @@ export default function Quest() {
             const questCollectionRef = collection(parentDocRef, 'quest');
 
             await addDoc(questCollectionRef, finalobj);
-
-            let myList = {"u_id": 1, "plan": {"name of destination1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus enim non velit faucibus, ac pharetra massa mattis. Nam vel orci ac sem aliquet pulvinar. Integer commodo purus ut dui ullamcorper, vitae fermentum augue feugiat. Fusce ultricies lacus quis leo pulvinar, eu consequat tellus consectetur. Donec ullamcorper eget felis vel dictum. Aenean id risus in nisl volutpat efficitur. Nam auctor felis sed enim blandit, at fringilla ex blandit. Praesent convallis, eros eu bibendum faucibus, libero ex mollis ipsum, vitae tincidunt mi eros ut velit.", 
-                "name of destination2": "Sed sed congue nunc. Donec ut nisl vel mauris vehicula gravida. Sed ac augue eu nibh lobortis consequat ut nec ipsum. Sed ut quam eget ipsum aliquam sagittis eget eu velit. Aliquam erat volutpat. Etiam nec massa felis. Fusce nec euismod odio. Sed vel ipsum ac orci pellentesque sollicitudin.", 
-                "name of destination3": "Nullam eget lectus nisi. Vivamus vel risus quis elit semper pretium. Donec id risus in nisi interdum eleifend. Morbi blandit ullamcorper quam a vestibulum. Nam vel laoreet quam. Aliquam euismod augue ac mi placerat, at semper mauris eleifend. Aliquam aliquam sodales elit, vitae ultricies quam faucibus quis. Vestibulum sit amet consequat nibh. Sed sed ipsum quis nisi congue laoreet. Vivamus eu convallis metus, a auctor enim. Cras bibendum consectetur mi ac venenatis. Aenean in nunc libero. Sed quis lorem enim."}, 
-                "user_details": "user_details"
-            };
-
-            // Real fetch call!!!
-
-            // const response = await fetch(`http://localhost:8000/plan/${user.u_id}`);
-            // if (!response.ok) {
-            //     throw new Error(`HTTP error! status: ${response.status}`);
-            // }
-            // const myList = await response.json();
-
-            const destinationList = Object.keys(myList.plan).map((destination) => ({
-                name: destination,
-                description: myList.plan[destination]
-            }));
-
-            myList.plan = destinationList;
-
-            // fetch(`http://localhost:8000/plan/${user.uid}`, {
-            //     method: 'GET',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            // })
-            //     .then((res) => res.json())
-            //     .then((data) => {
-            //         console.log("gotten data:", data);
+            
+            const myList = {"Montreal, Canada": "- Roundtrip bus fare from NY to Montreal: $150\n - Hotel (7 nights): $700\n- Food and entertainment: $500\nActivities:\n- Explore the Underground City and shops\n- Visit Notre-Dame Basilica \n-Check out the nightlife in the Quartier des Spectacles\n- Try poutine, Montreal-style bagels, and maple syrup\n- Take in the views from Mount Royal Park\n" , 
+            "Chicago, Illinois": "- Roundtrip train fare from NY to Chicago: $150 \n- Hotel (7 nights): $700\n - Food and entertainment: $500\nActivities: \n- Take in the views from Willis Tower Skydeck\n- Explore Millennium Park and Art Institute of Chicago\n - Bar hop along the Magnificent Mile    \n- Go comedy clubbing at Second City \n- Try deep dish pizza and Chicago-style hot dogs\n",
+            "Quebec City, Canada": "- Roundtrip bus fare from NY to Quebec City: $200\n - Hotel (7 nights): $650\n- Food and entertainment: $450 \nActivities:\n- Explore the Old City, a UNESCO World Heritage site\n- Check out the nightlife along Grande-Allée and St-Jean St\n- Visit the Citadelle of Quebec and Battlefields Park \n- Try poutine, tourtière, and maple syrup \n- Go skiing or snowshoeing\n "}
+            
+            // fetch(`https://swappysh--main-py-fastapi-app-dev.modal.run/plan/${userUid}}`)
+            //     .then(response => response.json())
+            //     .then(myList => {
+            //         console.log("data is: ", myList);
+            //         const destinationList = Object.keys(myList.plan).map((destination) => ({
+            //             name: destination,
+            //             description: myList.plan[destination]
+            //         }));
+            //         myList.plan = destinationList;
+            //         navigate("/results", { state: { myList }})
             //     })
             navigate("/results", { state: { myList }})
-            // { myList : {...} }
         }}>
             Submit
       </button>

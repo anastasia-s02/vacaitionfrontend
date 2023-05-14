@@ -49,9 +49,9 @@ form > input[type='button']:hover, button:hover {
   right: 25px;
   padding: 0.375rem 1rem;
   font-size: 1.25rem;
-  background: linear-gradient(to bottom right, #0088BC, #D83F1F);
-  color: white;
-  box-shadow: 8px 8px 12px rebeccapurple;
+  background: linear-gradient(to bottom right, rgba(0, 136, 188, 0.7), rgba(216, 63, 31, 0.7));
+  color: rgba(255, 255, 255, 0.7);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 input:not([type='button']) {

@@ -11,6 +11,15 @@ import { auth, db } from '../../firebase.js';
 import SignupScreen from '../../screens/SignUpScreen';
 import LoginScreen from '../../screens/LoginScreen';
 
+const NavigationHandler = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate('/checkin');
+  }, [navigate]);
+
+  return null;
+};
+
 export default function Routing() {
   const {user, setUser} = useContext(AuthContext);
   const [initializing, setInitializing] = useState(true);
@@ -36,30 +45,15 @@ export default function Routing() {
 
         // Create a reference to the parent document 'data/user/id'
         const parentDocRef = doc(db, 'data', userUid);
-
-        // try {
-        //   const docSnapshot = await getDoc(parentDocRef);
-        //   if (docSnapshot.exists()) {
-        //     console.log("document exists")
-        //     setFirstTime(false);
-        //     throw new Error('Document does not exist!');
-        //   }
-        // } catch (error) {
-        //   // Handle the error
-        //   alert('Error checking document existence:', error);
-        //   console.log('Error checking document existence:', error);
-        // } finally {
-        //   setIsLoading(false);
-        //   console.log("first time is", firsttime);
-        // }
+        
         try {
           const docSnapshot = await getDoc(parentDocRef);
           if (docSnapshot.exists()) {
             console.log("document exists");
-            setFirstTime(true); // Set firsttime to true when the document exists
+            setFirstTime(false); // Set firsttime to true when the document exists
           } else {
             console.log("document does not exist");
-            setFirstTime(false); // Set firsttime to false when the document does not exist
+            setFirstTime(true); // Set firsttime to false when the document does not exist
           }
         } catch (error) {
           // Handle the error
@@ -76,22 +70,25 @@ export default function Routing() {
 
   if (isLoading) {
     // Render a loading state, e.g., a spinner or a "Loading..." message
-    return <div>Loading...</div>;
+    return (
+      <div style={{minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        Loading...
+      </div>
+    )
   }
 
   return (
     <Router>
       {user ?
         <Routes>
-          <Route exact path='/' element={
-            firsttime ? <CheckIn /> : <Home />
-            // <CheckIn />
-          } />
+          <Route exact path='/' element={<Home />} />
           <Route exact path='/results' element={<Results />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       :
         <Routes>
           <Route exact path='/' element={<SignupScreen />} />
+          <Route exact path='/checkin' element={<CheckIn />} />
           <Route exact path='/signin' element={<LoginScreen />} />
         </Routes>
       }

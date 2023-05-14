@@ -1,0 +1,11 @@
+#checkinform {
+    height: 100vh;
+}
+
+.questtitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+#questform textarea {
+    border-radius: 10px;
+}

@@ -50,17 +50,19 @@ export default function Results(){
     // })
 
     return(
-        <div class='container'>
-            <div class='results-page-title'>Here are the three destinations you might like!</div>
-            <div class='comments-container'>
+        <div className='container'>
+            <div className='results-page-title'>Here are the three destinations you might like!</div>
+            <div className='comments-container'>
                 {allRecommendations.map((singleRecommendation) => (
-                    <Recommendation
-                        key={singleRecommendation.id}
-                        recommendation={singleRecommendation}
-                        activeRecommendation={activeRecommendation}
-                        setChoice={setChoice}
-                        currentUserId={currentUserId}
-                    />
+                    <div className='recommendation-border'>
+                        <Recommendation
+                            key={singleRecommendation.id}
+                            recommendation={singleRecommendation}
+                            activeRecommendation={activeRecommendation}
+                            setChoice={setChoice}
+                            currentUserId={currentUserId}
+                        />
+                    </div>
                 ))}
             </div>
         </div>

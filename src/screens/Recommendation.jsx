@@ -1,10 +1,9 @@
 export default function Recommendation({key, recommendation, activeRecommendation, setChoice, currentUserId}) {
     return(
-        <div className='frame'>
-            <textarea
-                className='recommendationBody'
-                value={recommendation.content}
-            />
+        <div className='recommendation-body'>
+            <div className='recommendation-text'>
+                {recommendation.content}
+            </div>
         </div>
     )
 }

@@ -2,7 +2,8 @@ import React, {createContext, useState} from 'react';
 import './assets/css/home.css';
 import Routing from './components/global/Routing.js';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
-import {auth} from './firebase.js';
+import {auth, db} from './firebase.js';
+import { doc, collection, addDoc } from 'firebase/firestore';
 
 export const AuthContext = createContext();
 
@@ -20,6 +21,7 @@ export default function App() {
             alert('Signed in!', '', [
               { text: 'OK', onClick: () => console.log('User account signed in!')},
             ]);
+            return true;
           })
           .catch(error => {
             if (error.code === 'auth/invalid-email') {
@@ -43,11 +45,26 @@ export default function App() {
               ]);
             }
             console.error(error);
+            return false;
           });
         },
-        register: async (email, password) => {
+        register: async (email, password, someobj) => {
           await createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
+              if (someobj) {
+                // get user id
+                const user = auth.currentUser;
+                const userUid = user.uid;
+                console.log("current user uid: ", userUid);
+                console.log("someobj: ", someobj);
+
+                // Create a reference to the parent document 'data/user/id'
+                const parentDocRef = doc(db, 'data', userUid);
+
+                // Create a reference to the 'quest' subcollection within the parent document
+                const questCollectionRef = collection(parentDocRef, 'info');
+                addDoc(questCollectionRef, someobj);
+              }
               console.log('Account created & signed in!')
               alert('Signed in!', '', [
                 { text: 'OK', onClick: () => console.log('User account created & signed in!')},

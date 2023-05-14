@@ -2,8 +2,13 @@ import React, {useContext, useState} from 'react';
 import { AuthContext } from '../App';
 import { useNavigate } from "react-router-dom";
 import '../assets/css/signupscreen.css';
+import { useLocation } from 'react-router-dom';
 
 export default function SignupScreen() {
+  const location = useLocation();
+  // const { passedobj } = location.state;
+  // if an object was passed in, it will be stored in passedobj, otherwise passedobj will be undefined
+  const { passedobj } = location.state;
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -30,7 +35,15 @@ export default function SignupScreen() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           placeholder="Confirm Password"
         />
-        <input type='button' onClick={() => register(email, password)} value='Sign Up'/>
+        <input type='button' onClick={() => {
+          if (password !== confirmPassword) {
+            alert('Passwords do not match');
+          } else if (email.includes('@') !== true && email.includes('.') !== true) {
+            alert('Please enter a valid email address');
+          } else {
+            navigate('/checkin', {state: {email: email, password: password, passedobj: passedobj}})
+          }}
+        } value='Sign Up'/>
       </form>
 
       <p>Already have an account?</p>

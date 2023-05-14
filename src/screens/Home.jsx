@@ -42,9 +42,6 @@ export default function Home(){
         <span id='typedvote' className='blinkingorange' ref={el} />
       </div>
       <Quest />
-      <button id='chatbutton' onClick={() => navigate('/chat/8gHjSjzaEgbQ3w8rKZDWZuU8qRA2')}>
-        Chat!
-      </button>
     </div> 
   )
 }

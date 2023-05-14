@@ -55,3 +55,13 @@
     align-content: left;
     color: rgba(0, 0, 0, 0.7);
 }
+
+#chat-button {
+    margin-top: 15px;
+    margin-block: 2rem;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px;
+    padding-inline: 1rem;
+}

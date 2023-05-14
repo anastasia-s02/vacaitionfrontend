@@ -11,8 +11,13 @@ const Recommendation = ({
             <div className='recommendation-name'>
                 {name}
             </div>
+            <br/>
             <div className='recommendation-text'>
-                {description}
+                {
+                    description.split('\n').map((item, key) => {
+                        return <span key={key}>{item}<br/><br/></span>
+                    } )
+                }
             </div>
         </div>
     )

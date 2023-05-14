@@ -40,6 +40,7 @@ export default function People(){
     // 
     return(
         <div style={{minHeight: '100vh'}}>
+            <button id="backtohome" onClick={() => navigate('/')}>Back to Home</button>
             <h1>People</h1>
             <div id="people">
                 {buddies.map((person) => (

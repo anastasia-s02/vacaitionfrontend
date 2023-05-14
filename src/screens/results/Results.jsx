@@ -49,13 +49,16 @@ export default function Results(){
             </div>
             <button id="find-people" onClick={(e) => {
                 setTravelPressed("Loading...")
-                fetch(`https://swappysh--main-py-fastapi-app-dev.modal.run/buddies/${user.uid}}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // {"u_id": u_id, "buddies": buddies, "user_details": user_details}
-                        console.log(data)
-                        navigate('/people', {state: {buddies: data["buddies"]}})
-                    });
+                // fetch(`https://swappysh--main-py-fastapi-app-dev.modal.run/buddies/${user.uid}}`)
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         // {"u_id": u_id, "buddies": buddies, "user_details": user_details}
+                //         console.log(data)
+                //         navigate('/people', {state: {buddies: data["buddies"]}})
+                //     });
+                // pass array of ids from allRecommendations /people
+                navigate('/people', {state: {buddies: ["gjvj8KLRU4SWckjOtCU3FgFxxcQ2", "9REJ7smT7QODUo5n3S2bfmKOlOB2", "AJmz6n46LjXW4d0CPoRTnTwhDon2", "ZLvntZoqq1cQ8GoWFzKH7rayroi1", "w15pIeDlHLURg8eWaCwY9s1BAZt2"]}});
+                setTravelPressed("Looking for a travel buddy?")
             }}>
                 {travelpressed}
             </button>

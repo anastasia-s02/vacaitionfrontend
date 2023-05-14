@@ -152,7 +152,7 @@ export default function Quest() {
                 setfinalobj({...finalobj, countries: countriesWithPassports});
             }}
         />
-        <button style={{marginBlock: '2rem'}} onClick={async (e) => {
+        <button id='questsubmit' onClick={async (e) => {
             e.preventDefault();
             console.log("finalobj is: ", finalobj);
             

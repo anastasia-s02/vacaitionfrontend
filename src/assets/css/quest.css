@@ -29,3 +29,16 @@
     border: none;
     box-shadow: 10px 10px 10px brown;
 }
+
+#questform select {
+    border: none;
+    border-radius: 10px;
+    padding-inline: 4px;
+}
+
+#questsubmit {
+    margin-block: 2rem;
+    font-size: 1.25rem;
+    box-shadow: 10px 10px 10px darkblue;
+    padding-inline: 1rem;
+}

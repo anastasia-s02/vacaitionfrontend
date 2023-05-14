@@ -1,16 +1,18 @@
 import '../../assets/css/results.css';
 
 const Recommendation = ({
-    key,
-    recommendation,
+    name,
+    description,
     activeRecommendation,
-    setChoice,
-    currentUserId
+    setChoice
 }) => {
     return(
         <div className='recommendation-body'>
+            <div className='recommendation-name'>
+                {name}
+            </div>
             <div className='recommendation-text'>
-                {recommendation.content}
+                {description}
             </div>
         </div>
     )

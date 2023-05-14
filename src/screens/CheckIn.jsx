@@ -18,8 +18,7 @@ export default function CheckIn() {
         {title: '2. How old are you?', name: 'age'},
         {title: '3. What are your hobbies?', name: 'hobbies'},
         {title: '4. What type of vacations do you enjoy?', name: 'vacationType'},
-        {title: '5. Are you an introvert or an extrovert? How often do you socialize?', name: 'personType'},
-        {title: '6. Any additional information?', name: "addInfo"}
+        {title: '5. Are you an introvert or an extrovert? How often do you socialize?', name: 'personType'}
     ]
 
   return(

@@ -1,14 +1,21 @@
 .message-list-container {
     margin-bottom: 16px;
-    flex: 1;
+    flex: 1 1;
     overflow: scroll;
+    background: linear-gradient(to bottom right, orange, blue);
+    border-radius: 25px;
+    color: white;
+    height: 65vh;
 }
-
+.messages-container {
+    width: 80%;
+    margin: 0 auto;
+}
 .message-list {
     height: 100%;
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column-reverse;
 }
 
 .message {

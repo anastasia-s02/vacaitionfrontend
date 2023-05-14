@@ -3,7 +3,7 @@ import { AuthContext } from '../../App';
 import { useNavigate } from "react-router-dom";
 import Select from 'react-select'
 import { db } from '../../firebase';
-import { getFirestore, setDoc, doc, getDoc, collection, addDoc } from "firebase/firestore";
+import { getFirestore, setDoc, doc, getDoc, collection, addDoc, getDocs } from "firebase/firestore";
 import '../../assets/css/quest.css'
 
 export default function Quest() {
@@ -16,6 +16,7 @@ export default function Quest() {
   const [departFrom, setDepartFrom] = useState('');
   const [transportation, setTransportation] = useState('');
   const [avoid, setAvoid] = useState([]);
+  const [additionalInfo, setAdditionalInfo] = useState('');
   const [finalobj, setfinalobj] = useState({sample: 'sample'});
     const [countries, setCountries] = useState([]);
 
@@ -135,6 +136,15 @@ export default function Quest() {
                 setfinalobj({...finalobj, countries: countriesWithPassports});
             }}
         />
+        <p>8. Any additional info you'd like to add?</p>
+        <textarea
+            className='shadows'
+            value={additionalInfo}
+            onChange={(e) => {
+                setAdditionalInfo(e.target.value);
+                setfinalobj({...finalobj, additionalInfo: e.target.value});
+            }}
+        />
         <button id='questsubmit' onClick={async (e) => {
             e.preventDefault();
             console.log("finalobj is: ", finalobj);
@@ -149,16 +159,19 @@ export default function Quest() {
             const questCollectionRef = collection(parentDocRef, 'quest');
 
             await addDoc(questCollectionRef, finalobj);
-            fetch(`http://localhost:8000/plan/${user.uid}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("gotten data:", data);
-            })
+
+            // fetch(`http://localhost:8000/plan/${user.uid}`, {
+            //     method: 'GET',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            // })
+            //     .then((res) => res.json())
+            //     .then((data) => {
+            //         console.log("gotten data:", data);
+            //     })
+            // navigate("/results", { state: { myList }})
+            // { myList : {...} }
         }}>
             Submit
       </button>

@@ -3,7 +3,7 @@ import './assets/css/home.css';
 import Routing from './components/global/Routing.js';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
 import {auth, db} from './firebase.js';
-import { doc, collection, addDoc } from 'firebase/firestore';
+import { doc, collection, addDoc, setDoc } from 'firebase/firestore';
 
 export const AuthContext = createContext();
 
@@ -50,7 +50,7 @@ export default function App() {
         },
         register: async (email, password, someobj) => {
           await createUserWithEmailAndPassword(auth, email, password)
-            .then(() => {
+            .then(async () => {
               if (someobj) {
                 // get user id
                 const user = auth.currentUser;
@@ -60,6 +60,8 @@ export default function App() {
 
                 // Create a reference to the parent document 'data/user/id'
                 const parentDocRef = doc(db, 'data', userUid);
+                // write {sample: 'samppe'} into the document title userUid
+                await setDoc(parentDocRef, {sample: 'sample'});
 
                 // Create a reference to the 'quest' subcollection within the parent document
                 const questCollectionRef = collection(parentDocRef, 'info');

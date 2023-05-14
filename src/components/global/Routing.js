@@ -5,6 +5,7 @@ import { HashRouter as Router, Routes, Route, useNavigate, Navigate } from "reac
 import Home from '../../screens/Home';
 import Results from '../../screens/results/Results';
 import CheckIn from '../../screens/CheckIn';
+import People from '../../screens/People';
 
 import { auth, db } from '../../firebase.js';
 import SignupScreen from '../../screens/SignUpScreen';
@@ -30,6 +31,7 @@ export default function Routing() {
           <Route exact path='/' element={<Home />} />
           <Route exact path='/results' element={<Results />} />
           <Route path="/chat/:recipientId" element={<Chat />} />
+          <Route exact path='people' element={<People />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       :

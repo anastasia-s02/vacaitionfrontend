@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../App';
 import { collection, getDocs, doc } from "firebase/firestore";
 import { db } from '../firebase';
+import { useLocation } from 'react-router-dom';
 
 export default function People(){
+    const location = useLocation();
+    const { buddies } = location.state;
     const {user} = useContext(AuthContext);
     const navigate = useNavigate();
     const [people, setPeople] = useState([]);
@@ -75,7 +78,7 @@ export default function People(){
 }
 
 {/* <div id="people">
-                {people.map((person) => (
+                {buddies.map((person) => (
                     <div class="person">
                         <h2>{person.name}</h2>
                         <button onClick={() => navigate(`/contact/${person.uid}`)}>Contact</button>

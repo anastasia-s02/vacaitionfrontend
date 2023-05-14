@@ -1,6 +1,6 @@
 #questform > p {
-    font-size: 2rem;
-    text-shadow: 10px 10px 17px black;
+    font-size: 1.5rem;
+    text-shadow: 10px 10px 17px rgba(0, 0, 0, 0.5);
     color: black;
 }
 
@@ -27,9 +27,14 @@
 #outertyped {
     text-shadow: 10px 10px 10px orange;
 }
-.shadows, #questform select, .css-13gadw6-container, .message-input {
+.shadows, #questform select, .css-13gadw6-container, .message-input, .css-13cymwt-control {
     border: none;
+    background: rgba(255, 255, 255, 0.4);
     box-shadow: 10px 10px 10px brown;
+}
+
+.css-13cymwt-control {
+    background-color: rgba(255, 255, 255, 0.4) !important;
 }
 
 #questform select {
@@ -41,6 +46,6 @@
 #questsubmit {
     margin-block: 2rem;
     font-size: 1.25rem;
-    box-shadow: 10px 10px 10px #0088BC;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
     padding-inline: 1rem;
 }

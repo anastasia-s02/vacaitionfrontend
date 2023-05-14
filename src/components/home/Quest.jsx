@@ -9,7 +9,7 @@ import '../../assets/css/quest.css'
 export default function Quest() {
   const navigate = useNavigate();
   const [time, setTime] = useState('');
-  const [budget, setBudget] = useState('');
+  const [budget, setBudget] = useState(2500);
   const [durationTime, setDurationTime] = useState(0);
   const [duration, setDuration] = useState('days'); 
   const [weather, setWeather] = useState('cold');
@@ -17,6 +17,7 @@ export default function Quest() {
   const [transportation, setTransportation] = useState('');
   const [avoid, setAvoid] = useState([]);
   const [finalobj, setfinalobj] = useState({sample: 'sample'});
+    const [countries, setCountries] = useState([]);
 
 //   get current user from AuthContext
     const {user} = useContext(AuthContext);
@@ -72,11 +73,11 @@ export default function Quest() {
                 setfinalobj({...finalobj, budget: e.target.value});
             }}
         />
-        <input value={budget} onChange={(e) => setBudget(e.target.value)} />
+        <input className='shadows' value={budget} onChange={(e) => setBudget(e.target.value)} />
         
         <p>3. For how long are you planning to go?</p>
         <div id='formlength'>
-            <input style={{marginRight: '1rem'}} value={durationTime} onChange={(e) => {
+            <input className='shadows' style={{marginRight: '1rem'}} value={durationTime} onChange={(e) => {
                 setDurationTime(e.target.value);
                 setfinalobj({...finalobj, duration: e.target.value + ' ' + duration});
             }} />  
@@ -104,8 +105,9 @@ export default function Quest() {
             <option value="hot">Hot (more than 65 degrees Fahrenheit)</option>
         </select>
 
-        <p>5. What place are you departing from?</p>
+        <p>5. Where are you departing from?</p>
         <input
+            className='shadows'
             type="text"
             value={departFrom}
             onChange={(e) => {
@@ -113,33 +115,27 @@ export default function Quest() {
                 setfinalobj({...finalobj, departFrom: e.target.value});
             }}
         />
-
-        <p>6. What are your desired modes of transportation to get to the destination?</p>
-        <Select
-            isMulti
-            name="transportationModes"
-            options={[
-                { value: 'Train', label: 'Train' },
-                { value: 'Car', label: 'Car' },
-                { value: 'Plane', label: 'Plane' },
-                { value: 'Ship', label: 'Ship' },
-                { value: 'Bus', label: 'Bus' },
-            ]}
-            onChange={(val) => {
-                setTransportation(val.map((v) => v.value));
-                setfinalobj({...finalobj, transportation: val.map((v) => v.value)});
-            }}
-        />
-        <p>7. List the places that you don't want to go to.</p>
+        <p>6. List the places that you don't want to go to.</p>
         <textarea
+            className='shadows'
             value={avoid.join('\n')}
             onChange={(e) => {
                 const placesToAvoid = e.target.value.split('\n').filter(place => place.trim() !== '');
                 setAvoid(placesToAvoid);
                 setfinalobj({...finalobj, avoid: placesToAvoid});
             }}
-      />
-        <button style={{marginBlock: '2rem'}} onClick={async (e) => {
+        />
+        <p>7.What countries do you have passports for? (Including your own country)</p>
+        <textarea
+            className='shadows'
+            value={countries.join('\n')}
+            onChange={(e) => {
+                const countriesWithPassports = e.target.value.split('\n').filter(country => country.trim() !== '');
+                setCountries(countriesWithPassports);
+                setfinalobj({...finalobj, countries: countriesWithPassports});
+            }}
+        />
+        <button id='questsubmit' onClick={async (e) => {
             e.preventDefault();
             console.log("finalobj is: ", finalobj);
             

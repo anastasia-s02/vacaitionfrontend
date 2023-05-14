@@ -1,6 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react';
 import {onAuthStateChanged } from 'firebase/auth';
-import { getDoc, doc } from 'firebase/firestore';
 import { AuthContext } from '../../App';
 import { HashRouter as Router, Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Home from '../../screens/Home';
@@ -10,21 +9,10 @@ import CheckIn from '../../screens/CheckIn';
 import { auth, db } from '../../firebase.js';
 import SignupScreen from '../../screens/SignUpScreen';
 import LoginScreen from '../../screens/LoginScreen';
-
-const NavigationHandler = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate('/checkin');
-  }, [navigate]);
-
-  return null;
-};
+import Chat from '../../screens/Chat';
 
 export default function Routing() {
   const {user, setUser} = useContext(AuthContext);
-  const [initializing, setInitializing] = useState(true);
-  const [firsttime, setFirstTime] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
 
   onAuthStateChanged(auth, (user) => {
     setUser(user);
@@ -35,54 +23,13 @@ export default function Routing() {
     return () => unsubscribe(); 
   }, [])
 
-  // if user id is the name of a document in data, then set firsttime to false
-  useEffect(() => {
-    const checkDocumentExistence = async () => {
-      if (user) {
-        setIsLoading(true);
-        // Assuming you have the user's UID available
-        const userUid = user.uid;
-
-        // Create a reference to the parent document 'data/user/id'
-        const parentDocRef = doc(db, 'data', userUid);
-        
-        try {
-          const docSnapshot = await getDoc(parentDocRef);
-          if (docSnapshot.exists()) {
-            console.log("document exists");
-            setFirstTime(false); // Set firsttime to true when the document exists
-          } else {
-            console.log("document does not exist");
-            setFirstTime(true); // Set firsttime to false when the document does not exist
-          }
-        } catch (error) {
-          // Handle the error
-          alert('Error checking document existence:', error);
-          console.log('Error checking document existence:', error);
-        } finally {
-          setIsLoading(false);
-          console.log("firsttime is", firsttime); // This may still log the previous value of firsttime due to async nature of state updates
-        }
-      }
-    }
-    checkDocumentExistence();
-  }, [user])
-
-  if (isLoading) {
-    // Render a loading state, e.g., a spinner or a "Loading..." message
-    return (
-      <div style={{minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        Loading...
-      </div>
-    )
-  }
-
   return (
     <Router>
       {user ?
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path='/results' element={<Results />} />
+          <Route path="/chat/:recipientId" element={<Chat />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       :

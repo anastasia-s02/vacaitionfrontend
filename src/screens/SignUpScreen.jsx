@@ -8,11 +8,11 @@ export default function SignupScreen() {
   const location = useLocation();
   // const { passedobj } = location.state;
   // if an object was passed in, it will be stored in passedobj, otherwise passedobj will be undefined
-  let passedobj = {}
+  let passedobj = {};
+  // const { passedobj } = location.state;
   if (location.state) {
     passedobj = location.state.passedobj;
   }
-  // const { passedobj } = ;
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();

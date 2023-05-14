@@ -1,5 +1,7 @@
 #questform > p {
     font-size: 2rem;
+    text-shadow: 10px 10px 17px black;
+    color: black;
 }
 
 .css-wsp0cs-MultiValueGeneric, .css-d7l1ni-option {
@@ -7,6 +9,38 @@
     color: black;
 }
 
+.css-13gadw6-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 25rem;
+    margin: auto;
+}
+
 #formlength {
-    
+    display: flex;
+}
+
+.css-13cymwt-control,.css-t3ipsp-control, .css-1nmdiq5-menu {
+    font-size: 2rem;
+    color: black !important;
+}
+#outertyped {
+    text-shadow: 10px 10px 10px orange;
+}
+.shadows, #questform select, .css-13gadw6-container {
+    border: none;
+    box-shadow: 10px 10px 10px brown;
+}
+
+#questform select {
+    border: none;
+    border-radius: 10px;
+    padding: 4px 4px;
+}
+
+#questsubmit {
+    margin-block: 2rem;
+    font-size: 1.25rem;
+    box-shadow: 10px 10px 10px #0088BC;
+    padding-inline: 1rem;
 }

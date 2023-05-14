@@ -31,7 +31,7 @@ export default function Routing() {
           <Route exact path='/' element={<Home />} />
           <Route exact path='/results' element={<Results />} />
           <Route path="/chat/:recipientId" element={<Chat />} />
-          <Route exact path='people' element={<People />} />
+          <Route exact path='/people' element={<People />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       :

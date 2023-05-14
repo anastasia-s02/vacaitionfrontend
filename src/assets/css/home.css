@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+
+#homeouterdiv {
+  font-family: 'Teko', sans-serif;
+  font-size: 7vw;
+  color: white;
+  text-align: center;
+}
+#outertyped {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.blinkingorange, .typed-cursor {
+  color: rgb(255, 87, 34);
+  font-family: 'Teko', sans-serif;
+  text-align: center;
+}
+
+@keyframes blinkingOrange{
+  0%{     color: rgb(255, 87, 34)}
+  49%{    color:rgb(255, 87, 34)}
+  60%{    color: transparent; }
+  99%{    color:transparent;  }
+  100%{   color: rgb(255, 87, 34)}
+}

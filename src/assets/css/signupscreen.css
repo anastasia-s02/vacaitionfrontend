@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;900&family=Montserrat:wght@600&display=swap');
+
+.parentdiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 136, 188, 0.65) 0%, rgba(0, 136, 188, 0) 100%);
+}
+
+#createacc {
+    font-size: 28px;
+    /* margin-bottom: 50px; */
+    /* color: #0088BC; */
+    color: black;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-weight: 500;
+}
+
+#signupform {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 128px;
+
+    position: absolute;
+    width: 300px;
+    height: 186px;
+    left: 490px;
+    top: 267px;
+}
+
+#frame {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 8px;
+    gap: 10px;
+
+    position: absolute;
+    width: 157px;
+    height: 48px;
+    left: 7px;
+    top: 0px;
+}
+
+#box {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0px;
+    top: 2px;
+}
+
+/* ::placeholder {
+    width: 141px;
+    height: 28px;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+    line-height: 28px;
+    identical to box height
+
+
+    color: rgba(0, 0, 0, 0.7);
+
+
+    Inside auto layout
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+} */
+
+.buttons {
+    margin-top: 1rem;
+    font-size: 18px;
+    font-weight: 500;
+    color: #0088BC;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    border-radius: 10px;
+}
+
+#bottom {
+    font-size: 18px;
+    margin-bottom: 50px;
+    color: #0088BC;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+#signupdiv input {
+    /* color: #0088BC; */
+    color: black;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#signinbutton {
+    margin-top: 0px;
+    padding: 0.375rem 1rem;
+    border-radius: 25px;
+}

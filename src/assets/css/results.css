@@ -20,6 +20,7 @@
     background: rgba(0, 136, 188, 0.15);
     border: 5px solid rgba(0, 136, 188, 0.4);
     border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px;
 }
 
 .results-page-title {
@@ -27,6 +28,7 @@
     margin-bottom: 50px;
     font-size: 28px;
     font-weight: 500;
+    text-shadow: 10px 10px 17px rgba(0, 0, 0, 0.5);
 }
 
 .recommendation-body {
@@ -47,6 +49,6 @@
 #find-people {
     margin-block: 2rem;
     font-size: 1.25rem;
-    box-shadow: 10px 10px 10px #0088BC;
+    box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px;
     padding-inline: 1rem;
 }

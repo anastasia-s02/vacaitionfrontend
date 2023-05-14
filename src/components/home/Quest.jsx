@@ -57,6 +57,7 @@ export default function Quest() {
                     ...provided,
                     width: '50%',
                     margin: 'auto',
+                    backgroundColor: 'rgba(255, 255, 255, 0.4)',
                 }),
                 input: (provided) => ({
                     ...provided,

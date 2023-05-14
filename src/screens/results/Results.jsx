@@ -8,25 +8,32 @@ import {
 
 export default function Results(){
     const [allRecommendations, setRecommendations] = useState([])
-    const recommendations = allRecommendations
     const activeRecommendation = null
-    const currentUserId = 1
 
     const setChoice = () => {
         console.log("set choice func not implemented")
     };
 
-    const prompt = "give me the top 3 destinations"
+    useEffect(() => { 
+        getResultsApi("give me the top 3 destinations").then((data) => {
+            setRecommendations(data)
+            console.log(data)
+        })
+
+    }, [])   
 
     useEffect(() => {
-        getResultsApi(prompt).then((data) => {
-          setRecommendations(data)
-          console.log(data)
-        })
-      }, [prompt]);
+        console.log("ar:", allRecommendations)
+        console.log("len of ar:", allRecommendations.length)
+    }, [allRecommendations])
+    // const prompt = "give me the top 3 destinations"
 
-    
-    console.log(recommendations);
+    // useEffect(() => {
+    //     getResultsApi(prompt).then((data) => {
+    //       setRecommendations(data)
+    //       console.log(data)
+    //     })
+    //   }, [prompt]);
 
     // getResultsApi(prompt).then((data) => {
     //     setRecommendations(data)
@@ -37,14 +44,13 @@ export default function Results(){
         <div className='container'>
             <div className='results-page-title'>Here are the three destinations you might like!</div>
             <div className='comments-container'>
-                {allRecommendations.map((singleRecommendation) => (
-                    <div className='recommendation-border'>
+                {allRecommendations.plan && allRecommendations["plan"].map((singleRecommendation, index) => (
+                    <div className='recommendation-border' key={index}>
                         <Recommendation
-                            key={singleRecommendation.id}
-                            recommendation={singleRecommendation}
+                            name={singleRecommendation.name}
+                            description={singleRecommendation.description}
                             activeRecommendation={activeRecommendation}
                             setChoice={setChoice}
-                            currentUserId={currentUserId}
                         />
                     </div>
                 ))}

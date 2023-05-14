@@ -4,10 +4,13 @@ import Recommendation from './Recommendation';
 import {
   getResults as getResultsApi
 } from './api'
+import { useLocation } from 'react-router-dom';
 
 
 export default function Results(){
-    const [allRecommendations, setRecommendations] = useState([])
+    const location = useLocation();
+    const { myList } = location.state;
+    const [allRecommendations, setRecommendations] = useState(myList)
     const activeRecommendation = null
 
     const setChoice = () => {

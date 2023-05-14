@@ -45,7 +45,7 @@ form > input[type='button'], button {
   right: 25px;
   padding: 0.375rem 1rem;
   font-size: 1.25rem;
-  background: linear-gradient(to bottom right, blue, red);
+  background: linear-gradient(to bottom right, #0088BC, #D83F1F);
   color: white;
 }
 
@@ -54,4 +54,11 @@ input:not([type='button']) {
   padding: 0.375rem 1rem;
   border-radius: 25px;
   width: 17.5rem;
+}
+
+textarea {
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }

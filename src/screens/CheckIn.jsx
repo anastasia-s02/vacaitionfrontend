@@ -18,36 +18,49 @@ export default function CheckIn() {
         {title: '2. How old are you?', name: 'age'},
         {title: '3. What are your hobbies?', name: 'hobbies'},
         {title: '4. What type of vacations do you enjoy?', name: 'vacationType'},
-        {title: '5. Are you an introvert or an extrovert? How often do you socialize?', name: 'personType'}
+        {title: '5. Are you an introvert or an extrovert? How often do you socialize?', name: 'personType'},
+        {title: '6. Any additional information?', name: "addInfo"}
     ]
 
   return(
     <form id='checkinform'>
+        <div className="pagetitle">
+            Welcome!
+        </div>
+        <div className="subtitle">
+            Let's get you set up!
+        </div>
         {options.map((option, index) => {
             return (
                 <div key={index}>
                     <p className='questtitle'>{option.title}</p>
-                    <textarea
-                        onChange={(e) => {
-                            setChickinObj({...checkinobj, [option.name]: e.target.value});
-                        }}
-                    >
-                    </textarea>
+                    <div className="textbox">
+                        <textarea
+                            onChange={(e) => {
+                                setChickinObj({...checkinobj, [option.name]: e.target.value});
+                            }}
+                        >
+                        </textarea>
+                    </div>
                 </div>
             )
         })}
-        <button style={{marginBlock: '2rem'}} onClick={async (e) => {
-            e.preventDefault();
-            register(email, password, checkinobj)
-                .then((bool) => {
-                    if (!bool) {
-                        console.log("passing checkinobj: ", checkinobj)
-                        navigate('/', {state: checkinobj})
-                    }
-                })
-        }}>
-            Submit
-      </button>
+        <button style={{
+            marginBlock: '2rem', 
+            backgroundColor: 'rgba(255, 255, 255, 0.4)',
+            boxShadow: '10px 10px 10px rgba(0, 0, 0, 0.10)'
+        }} onClick={async (e) => {
+                e.preventDefault();
+                register(email, password, checkinobj)
+                    .then((bool) => {
+                        if (!bool) {
+                            console.log("passing checkinobj: ", checkinobj)
+                            navigate('/', {state: checkinobj})
+                        }
+                    })
+            }}>
+                Submit
+        </button>
     </form>
   );
 };

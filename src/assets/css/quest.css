@@ -39,6 +39,6 @@
 #questsubmit {
     margin-block: 2rem;
     font-size: 1.25rem;
-    box-shadow: 10px 10px 10px darkblue;
+    box-shadow: 10px 10px 10px #0088BC;
     padding-inline: 1rem;
 }

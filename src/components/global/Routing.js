@@ -4,7 +4,7 @@ import { getDoc, doc } from 'firebase/firestore';
 import { AuthContext } from '../../App';
 import { HashRouter as Router, Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Home from '../../screens/Home';
-import Results from '../../screens/Results';
+import Results from '../../screens/results/Results';
 import CheckIn from '../../screens/CheckIn';
 
 import { auth, db } from '../../firebase.js';

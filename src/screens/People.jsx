@@ -8,7 +8,10 @@ import { useLocation } from 'react-router-dom';
 
 export default function People(){
     const location = useLocation();
-    const { buddies } = location.state;
+    let buddies = {}
+    if (location.state){
+        buddies = location.state.buddies;
+    }
     const {user} = useContext(AuthContext);
     const navigate = useNavigate();
     const [people, setPeople] = useState([]);
@@ -137,6 +140,7 @@ export default function People(){
         //     </div>
         // </div>
         <div className='pcontainer'>
+            <button id='signoutbutton' onClick={() => navigate('/home')}>Back to Home</button>
             <div className='presults-page-title'>Here are the three potential travel buddies!</div>
             <div className='pcomments-container'>
                 <div className='precommendation-border'>

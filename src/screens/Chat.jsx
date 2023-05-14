@@ -28,7 +28,7 @@ export default function Chat(){
         <div style={{minHeight: '100vh'}}>
             <h2>Chat with {recipientId}</h2>
             <div style={{marginBottom: '1rem'}}>
-                <Link to="/people">⬅️ Back to People</Link>
+                <button onClick={() => navigate('/people')}>⬅️ Back to People</button>
             </div>
             <div className="messages-container">
                 <MessageList roomId={room} />

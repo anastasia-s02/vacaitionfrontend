@@ -24,8 +24,10 @@
     font-size: 2rem;
     color: black !important;
 }
-
-.shadows {
+#outertyped {
+    text-shadow: 10px 10px 10px orange;
+}
+.shadows, #questform select, .css-13gadw6-container {
     border: none;
     box-shadow: 10px 10px 10px brown;
 }
@@ -33,7 +35,7 @@
 #questform select {
     border: none;
     border-radius: 10px;
-    padding-inline: 4px;
+    padding: 4px 4px;
 }
 
 #questsubmit {

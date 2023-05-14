@@ -47,6 +47,7 @@ form > input[type='button'], button {
   font-size: 1.25rem;
   background: linear-gradient(to bottom right, blue, red);
   color: white;
+  box-shadow: 8px 8px 12px rebeccapurple;
 }
 
 input:not([type='button']) {

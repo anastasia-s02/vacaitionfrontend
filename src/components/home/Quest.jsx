@@ -115,24 +115,7 @@ export default function Quest() {
                 setfinalobj({...finalobj, departFrom: e.target.value});
             }}
         />
-
-        <p>6. What are your desired modes of transportation to get to the destination?</p>
-        <Select
-            isMulti
-            name="transportationModes"
-            options={[
-                { value: 'Train', label: 'Train' },
-                { value: 'Car', label: 'Car' },
-                { value: 'Plane', label: 'Plane' },
-                { value: 'Ship', label: 'Ship' },
-                { value: 'Bus', label: 'Bus' },
-            ]}
-            onChange={(val) => {
-                setTransportation(val.map((v) => v.value));
-                setfinalobj({...finalobj, transportation: val.map((v) => v.value)});
-            }}
-        />
-        <p>7. List the places that you don't want to go to.</p>
+        <p>6. List the places that you don't want to go to.</p>
         <textarea
             className='shadows'
             value={avoid.join('\n')}
@@ -142,7 +125,7 @@ export default function Quest() {
                 setfinalobj({...finalobj, avoid: placesToAvoid});
             }}
         />
-        <p>8.What countries do you have passports for? (Including your own country)</p>
+        <p>7.What countries do you have passports for? (Including your own country)</p>
         <textarea
             className='shadows'
             value={countries.join('\n')}

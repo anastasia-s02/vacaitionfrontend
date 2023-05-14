@@ -14,14 +14,26 @@ export default function Results(){
         console.log("set choice func not implemented")
     };
 
-    const prompt = "give me the top 3 destinations"
+    useEffect(() => { 
+        getResultsApi("give me the top 3 destinations").then((data) => {
+            setRecommendations(data)
+            console.log(data)
+        })
+
+    }, [])   
 
     useEffect(() => {
-        getResultsApi(prompt).then((data) => {
-          setRecommendations(data)
-          console.log(data)
-        })
-      }, [prompt]);
+        console.log("ar:", allRecommendations)
+        console.log("len of ar:", allRecommendations.length)
+    }, [allRecommendations])
+    // const prompt = "give me the top 3 destinations"
+
+    // useEffect(() => {
+    //     getResultsApi(prompt).then((data) => {
+    //       setRecommendations(data)
+    //       console.log(data)
+    //     })
+    //   }, [prompt]);
 
     // getResultsApi(prompt).then((data) => {
     //     setRecommendations(data)
@@ -32,8 +44,8 @@ export default function Results(){
         <div className='container'>
             <div className='results-page-title'>Here are the three destinations you might like!</div>
             <div className='comments-container'>
-                {allRecommendations.plan.map((singleRecommendation) => (
-                    <div className='recommendation-border'>
+                {allRecommendations.plan && allRecommendations["plan"].map((singleRecommendation, index) => (
+                    <div className='recommendation-border' key={index}>
                         <Recommendation
                             name={singleRecommendation.name}
                             description={singleRecommendation.description}

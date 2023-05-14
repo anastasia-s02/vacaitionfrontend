@@ -33,6 +33,13 @@
     padding: 20px;
 }
 
+.recommendation-name {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .recommendation-text {
+    align-content: left;
     color: rgba(255, 255, 255, 0.7);
 }

@@ -58,6 +58,11 @@ export default function Results(){
                     </div>
                 ))}
             </div>
+            <button id="find-people" onClick={async (e) => {
+                //
+            }}>
+                Looking for a travel buddy?
+            </button>
         </div>
     )
   }

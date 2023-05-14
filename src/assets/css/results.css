@@ -43,3 +43,10 @@
     align-content: left;
     color: rgba(255, 255, 255, 0.7);
 }
+
+#find-people {
+    margin-block: 2rem;
+    font-size: 1.25rem;
+    box-shadow: 10px 10px 10px #0088BC;
+    padding-inline: 1rem;
+}

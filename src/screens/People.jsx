@@ -39,22 +39,39 @@ export default function People(){
     const getQuestDocuments = async (userIds) => {
         try {
             const promises = userIds.map(async (userId) => {
-                const userDocRef = doc(db, 'data', userId);
-                const userDocSnapshot = await getDoc(userDocRef);
+                // const userDocRef = doc(db, 'data', userId);
+                // const userDocSnapshot = await getDoc(userDocRef);
                 
-                if (userDocSnapshot.exists()) {
-                    const infoDocRef = doc(userDocRef, 'info');
-                    const infoDocSnapshot = await getDoc(infoDocRef);
+
             
-                    if (infoDocSnapshot.exists()) {
-                    return infoDocSnapshot.data();
-                    } else {
-                    return null;
-                    }
-                }
-                else {
-                    return null;
-                }
+            // Assuming you have the user's UID available
+                const userUid = user.uid;
+
+                // Create a reference to the parent document 'data/user/id'
+                const parentDocRef = collection(db, `data/${userUid}/info`);
+                const ourdoc = await getDocs(parentDocRef);
+                const finalobj = ourdoc.docs.map(doc => doc.data());
+                console.log(finalobj);
+                // print data from the document
+
+                // Create a reference to the 'quest' subcollection within the parent document
+                // const questCollectionRef = collection(parentDocRef, 'quest');
+
+                // await addDoc(questCollectionRef, finalobj);
+
+                // if (userDocSnapshot.exists()) {
+                //     const infoDocRef = doc(userDocRef, 'info');
+                //     const infoDocSnapshot = await getDoc(infoDocRef);
+            
+                //     if (infoDocSnapshot.exists()) {
+                //     return infoDocSnapshot.data();
+                //     } else {
+                //     return null;
+                //     }
+                // }
+                // else {
+                //     return null;
+                // }
             });
 
             const results = await Promise.all(promises);
@@ -92,7 +109,8 @@ export default function People(){
             <button id="backtohome" onClick={() => navigate('/')}>Back to Home</button>
             <div className='presults-page-title'>Here are the three potential travel buddies!</div>
             <div className='pcomments-container'>
-                {buddies.map((buddy, index) => (
+                {/* {people.length > 0 && buddies.map((buddy, index) => ( */}
+                {people.length > 0 && buddies.map((buddy, index) => (
                     <div className='precommendation-border' key={index}>
                         <div className='precommendation-body'>
                             <div className='precommendation-name'>

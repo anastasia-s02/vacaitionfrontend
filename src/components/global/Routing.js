@@ -83,7 +83,10 @@ export default function Routing() {
     <Router>
       {user ?
         <Routes>
-          <Route exact path='/' element={firsttime ? <CheckIn /> : <Home />} />
+          <Route exact path='/' element={
+            firsttime ? <CheckIn /> : <Home />
+            // <CheckIn />
+          } />
           <Route exact path='/results' element={<Results />} />
         </Routes>
       :

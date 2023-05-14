@@ -3,10 +3,12 @@ import '../assets/css/home.css';
 import Typed from "typed.js";
 import Quest from '../components/home/Quest';
 import { AuthContext } from '../App';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Home(){
   const {logout} = useContext(AuthContext);
+  const navigate = useNavigate();
   // Create reference to store the DOM element containing the animation
   const el = useRef(null);
   
@@ -40,6 +42,9 @@ export default function Home(){
         <span id='typedvote' className='blinkingorange' ref={el} />
       </div>
       <Quest />
+      <button id='chatbutton' onClick={() => navigate('/chat/8gHjSjzaEgbQ3w8rKZDWZuU8qRA2')}>
+        Chat!
+      </button>
     </div> 
   )
 }

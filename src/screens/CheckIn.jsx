@@ -45,11 +45,7 @@ export default function CheckIn() {
                 </div>
             )
         })}
-        <button style={{
-            marginBlock: '2rem', 
-            backgroundColor: 'rgba(255, 255, 255, 0.4)',
-            boxShadow: '10px 10px 10px rgba(0, 0, 0, 0.10)'
-        }} onClick={async (e) => {
+        <button id="checkinsubmit" onClick={async (e) => {
                 e.preventDefault();
                 register(email, password, checkinobj)
                     .then((bool) => {

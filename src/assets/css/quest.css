@@ -56,8 +56,9 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 40vh;
-    left: 40%
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 #questouterdiv > span > :first-child {
     border: 15px solid red !important;

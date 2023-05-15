@@ -12,8 +12,12 @@ export default function Results(){
     const navigate = useNavigate();
     const location = useLocation();
     const {user} = useContext(AuthContext);
-    const { myList } = location.state;
-    const [allRecommendations, setRecommendations] = useState(myList)
+    let myList = {};
+    if (location.state) {
+        myList = location.state.myList;
+    }
+    // const { myList } = location.state;
+    const [allRecommendations, setRecommendations] = useState(JSON.parse(myList))
     const [travelpressed, setTravelPressed] = useState("Looking for a travel buddy?")
     const activeRecommendation = null
     console.log("allrec:", allRecommendations)
@@ -33,13 +37,13 @@ export default function Results(){
         <div className='container'>
             <div className='results-page-title'>Here are the three destinations you might like!</div>
             <div className='comments-container'>
-                {allRecommendations.plan && Object.keys(allRecommendations.plan).map((singleRecommendation, index) => {
+                {allRecommendations.plan && Object.keys(allRecommendations.plan[0]).map((singleRecommendation, index) => {
                     console.log("singleRecommendation:", singleRecommendation)
                     return(
                         <div className='recommendation-border' key={index}>
                             <Recommendation
                                 name={singleRecommendation}
-                                description={allRecommendations.plan[singleRecommendation]}
+                                description={allRecommendations.plan[0][singleRecommendation]}
                                 activeRecommendation={activeRecommendation}
                                 // setChoice={setChoice}
                             />

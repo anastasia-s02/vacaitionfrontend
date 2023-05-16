@@ -55,11 +55,11 @@ export default function Quest() {
 
     return(
         submitpressed ?
-            <div id='questouterdiv'>
+            <div id='questouterdiv' className='absolute flex flex-col items-center justify-center top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2'>
                 <RingLoader color='#FFA500' loading={true} size={150} />
             </div>
         :
-            <form id='questform'>
+            <form id='questform' className='flex'>
                 <p>1. How do you want to spend your time?</p>
                 <Select 
                     isMulti
@@ -162,7 +162,7 @@ export default function Quest() {
                         setfinalobj({...finalobj, additionalInfo: e.target.value});
                     }}
                 />
-                <button id='questsubmit' onClick={async (e) => {
+                <button id='questsubmit' className='mb-8 text-[1.25rem]' onClick={async (e) => {
                     e.preventDefault();
                     setSubmitPressed(true);
                     console.log("finalobj is: ", finalobj);

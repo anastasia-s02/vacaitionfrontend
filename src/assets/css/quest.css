@@ -16,10 +16,6 @@
     margin: auto;
 }
 
-#formlength {
-    display: flex;
-}
-
 .css-13cymwt-control,.css-t3ipsp-control, .css-1nmdiq5-menu {
     font-size: 2rem;
     color: black !important;
@@ -44,22 +40,10 @@
 }
 
 #questsubmit {
-    margin-block: 2rem;
-    font-size: 1.25rem;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
     padding-inline: 1rem;
 }
 
-#questouterdiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 #questouterdiv > span > :first-child {
     border: 15px solid red !important;
 }

@@ -1,52 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;900&family=Montserrat:wght@600&display=swap');
 
-.container {    
-    min-height: 100vh;
-    margin-right: 50px;
-    margin-left: 50px;
+#resultscontainer {
+    min-height: 89vh;
 }
-
-.comments-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: stretch;
-    column-gap: 25px;
-    color: black;
-}
-
 .recommendation-border {
     background: rgba(0, 136, 188, 0.15);
     border: 5px solid rgba(0, 136, 188, 0.4);
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px;
 }
-
 .results-page-title {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-size: 28px;
-    font-weight: 500;
     text-shadow: 10px 10px 17px rgba(0, 0, 0, 0.5);
 }
-
-.recommendation-body {
-    padding: 20px;
-}
-
-.recommendation-name {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.recommendation-text {
-    text-align: left;
-}
-
 #find-people {
-    margin-block: 2rem;
-    font-size: 1.25rem;
     box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px;
-    padding-inline: 1rem;
+    background: linear-gradient(to bottom right, lightgreen, lightblue);
+    transition: all .3s;
+}
+#find-people:hover {
+    background: linear-gradient(to bottom right, red, blue);
 }

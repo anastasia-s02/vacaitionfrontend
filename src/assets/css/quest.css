@@ -13,6 +13,7 @@
 .css-1r5m2vd-container {
     margin-top: 2rem !important;
     width: auto !important;
+    max-width: 75vw !important;
 }
 .css-1r5m2vd-container * {
     font-size: 1.25rem !important;
@@ -67,10 +68,4 @@
     /* box-shadow: 10px 10px 10px #00000033; */
     /* padding-inline: 1rem; */
     background: linear-gradient(to bottom right, blue, rgba(216, 63, 31, 0.7));
-}
-#questouterdiv > span > :first-child {
-    border: 15px solid red !important;
-}
-#questouterdiv > span > :last-child {
-    border: 15px solid blue !important;
 }

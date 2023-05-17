@@ -1,54 +1,41 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import '../assets/css/results.css';
-import Recommendation from './Recommendation';
-import { AuthContext } from '../App';
 import { useLocation, useNavigate } from 'react-router-dom';
+import '../assets/css/results.css';
 
 
-export default function Results(){
+export default function Results({ resultsdata }){
     const navigate = useNavigate();
-    const location = useLocation();
-    const {user} = useContext(AuthContext);
-    let myList = {};
-    if (location.state) {
-        myList = location.state.myList;
-    }
-    // const { myList } = location.state;
-    const [allRecommendations, setRecommendations] = useState(JSON.parse(myList))
+    
     const [travelpressed, setTravelPressed] = useState("Looking for a travel buddy?")
-    const activeRecommendation = null
-    console.log("allrec:", allRecommendations)
-
-    // const setChoice = () => {
-    //     console.log("set choice func not implemented")
-    // };
-
-    // useEffect(() => { 
-    //     getResultsApi("give me the top 3 destinations").then((data) => {
-    //         setRecommendations(data)
-    //         console.log(data)
-    //     })
-    // }, [])  
 
     return(
-        <div className='container'>
-            <div className='results-page-title'>Here are the three destinations you might like!</div>
-            <div className='comments-container'>
-                {allRecommendations.plan && Object.keys(allRecommendations.plan[0]).map((singleRecommendation, index) => {
+        <div id='resultscontainer' className='container my-0 mx-auto flex flex-col items-center justify-center'>
+            <div className='results-page-title my-12 text-2xl font-medium text-black'>Here are the three destinations you might like!</div>
+            <div className='comments-container flex flex-row justify-center gap-8 text-black'>
+                {resultsdata.plan && Object.keys(resultsdata.plan[0]["description"]).map((singleRecommendation, index) => {
                     console.log("singleRecommendation:", singleRecommendation)
                     return(
-                        <div className='recommendation-border' key={index}>
-                            <Recommendation
-                                name={singleRecommendation}
-                                description={allRecommendations.plan[0][singleRecommendation]}
-                                activeRecommendation={activeRecommendation}
-                                // setChoice={setChoice}
-                            />
+                        <div className='recommendation-border border' key={index}>
+                            <div className='recommendation-body p-5'>
+                                <div className='recommendation-name text-[1.25rem] font-bold'>
+                                    {singleRecommendation}
+                                </div>
+                                <div className='recommendation-text text-left text-[1rem]'>
+                                    <ul>
+                                        {resultsdata.plan[0]["description"][singleRecommendation].split("-").map((singleRecommendationText, index) => {
+                                            console.log("singleRecommendationText:", singleRecommendationText)
+                                            return(
+                                                <li key={index}>{singleRecommendationText}</li>
+                                            )
+                                        })}
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     )
                 })}
             </div>
-            <button id="find-people" onClick={(e) => {
+            <button className='my-8 text-[1.25rem] px-4 text-black' id="find-people" onClick={(e) => {
                 setTravelPressed("Loading...")
                 // fetch(`https://swappysh--main-py-fastapi-app-dev.modal.run/buddies/${user.uid}}`)
                 //     .then(response => response.json())
@@ -56,8 +43,8 @@ export default function Results(){
                 //         // {"u_id": u_id, "buddies": buddies, "user_details": user_details}
                 //         console.log(data)
                 //         navigate('/people', {state: {buddies: data["buddies"]}})
-                //     });
-                // pass array of ids from allRecommendations /people
+                //     });allRecommendations
+                // pass array of ids from  /people
                 navigate('/people', {state: {buddies: ["gjvj8KLRU4SWckjOtCU3FgFxxcQ2", "9REJ7smT7QODUo5n3S2bfmKOlOB2", "AJmz6n46LjXW4d0CPoRTnTwhDon2", "ZLvntZoqq1cQ8GoWFzKH7rayroi1", "w15pIeDlHLURg8eWaCwY9s1BAZt2"]}});
                 setTravelPressed("Looking for a travel buddy?")
             }}>

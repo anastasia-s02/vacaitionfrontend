@@ -6,10 +6,10 @@
   font-size: 6vw;
   color: white;
   text-align: center;
-  min-height: 100vh;
+  min-height: 99vh;
 }
 #outertyped {
-  margin-top: 1rem;
+  margin-top: 1vh;
   display: flex;
   flex-direction: row;
   align-items: center;

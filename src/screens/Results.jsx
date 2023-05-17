@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import '../../assets/css/results.css';
+import '../assets/css/results.css';
 import Recommendation from './Recommendation';
-import {
-  getResults as getResultsApi
-} from './api'
-import { AuthContext } from '../../App';
+import { AuthContext } from '../App';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 

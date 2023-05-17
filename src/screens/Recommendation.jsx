@@ -1,4 +1,4 @@
-import '../../assets/css/results.css';
+import '../assets/css/results.css';
 
 const Recommendation = ({
     name,

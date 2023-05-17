@@ -63,12 +63,17 @@ input:not([type='button']) {
   margin-top: 0px;
   padding: 0.375rem 1rem;
   border-radius: 25px;
-  width: 17.5rem;
+  width: 15%;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.shadows {
+  margin-top: 1rem;
 }
 
 textarea {
-    background: rgba(255, 255, 255, 0.4);
-    border: none;
-    border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
